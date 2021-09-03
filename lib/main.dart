@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:dio/dio.dart';
+import 'package:yt_player/video_class.dart';
+import 'package:yt_player/yt_api_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,13 +17,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   //
-  void getHttp() async {
-    try {
-      // TODO: Requisição
-      // https://www.youtube.com/watch?v=feQhHStBVLE
-    } catch (e) {
-      print(e.toString());
-    }
+  Future<List<Video>> _getVideos() async {
+    return YoutubeApiService.instance.fetchVideosFromYoutubeSearch(query: '');
   }
 
   YoutubePlayerController _controller = YoutubePlayerController(
@@ -63,6 +60,29 @@ class _MyAppState extends State<MyApp> {
                 )
               ],
             ),
+            SizedBox(
+              width: 50,
+              height: 50,
+            ),
+            FutureBuilder(
+                future: _getVideos(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<Video> videos = snapshot.data as List<Video>;
+                    return ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: videos.length,
+                      itemBuilder: (context, index) {
+                        Video video = videos[index];
+                        return ListTile(
+                          title: Text(video.title),
+                        );
+                      },
+                    );
+                  }
+                  return CircularProgressIndicator();
+                }),
           ],
         ),
       ),
