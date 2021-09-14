@@ -22,7 +22,8 @@ class YoutubeApiService {
         'part': 'snippet',
         'maxResults': '4',
         'key': YtKey.API_KEY,
-        'q': 'hino 330 descansando no poder de deus',
+        'q':
+            'hino 330 descansando no poder de deus', // Recebe a string de pesquisa
       };
 
       Uri uri = Uri.https(_baseUrl, '/youtube/v3/search', params);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yt_player/video_class.dart';
+import 'package:yt_player/video_player_page.dart';
 
 class VideoCard extends StatelessWidget {
   final Video video;
@@ -9,7 +10,12 @@ class VideoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // TODO Exibir o vídeo no player
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) => VideoPlayerPage(video: video),
+          ),
+        );
       },
       child: Card(
         child: Container(
@@ -35,6 +41,7 @@ class VideoCard extends StatelessWidget {
                 ),
               ),
               ListTile(
+                dense: true,
                 title: Text(
                   video.title,
                   overflow: TextOverflow.ellipsis,

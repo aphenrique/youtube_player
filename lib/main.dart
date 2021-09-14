@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:dio/dio.dart';
-import 'package:yt_player/video_class.dart';
 import 'package:yt_player/video_list.dart';
-import 'package:yt_player/yt_api_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,15 +14,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   //
-
-  YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'B-JKMAxtXGs',
-    flags: YoutubePlayerFlags(
-      autoPlay: false,
-      mute: false,
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,27 +28,6 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: false,
-              progressColors: ProgressBarColors(
-                bufferedColor: Colors.grey,
-                playedColor: Theme.of(context).primaryColor,
-              ),
-              onReady: () {
-                _controller.pause();
-              },
-              topActions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.refresh),
-                )
-              ],
-            ),
-            SizedBox(
-              width: 200,
-              height: 20,
-            ),
             VideoList(),
           ],
         ),
