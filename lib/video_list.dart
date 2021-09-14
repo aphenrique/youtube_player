@@ -17,7 +17,8 @@ class _VideoListState extends State<VideoList> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: youtubeApi.fetchVideosFromYoutubeSearch(query: 'query'),
+        future: youtubeApi.getVideosFromYoutubeSearch(
+            query: 'hino 007 Maravilhas divinas'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Video> videos = snapshot.data as List<Video>;
