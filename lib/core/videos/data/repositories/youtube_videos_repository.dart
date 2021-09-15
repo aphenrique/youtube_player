@@ -1,19 +1,15 @@
-import 'dart:io';
-import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
-import 'package:yt_player/connect_check.dart';
+import 'package:yt_player/core/videos/domain/entities/video_class.dart';
+import 'package:yt_player/core/videos/domain/repositories/videos_repository.dart';
 import 'package:yt_player/custom_dio.dart';
-import 'package:yt_player/video_class.dart';
+import 'package:yt_player/utils/connect_check.dart';
 import 'package:yt_player/yt_class.dart';
 
-class YoutubeApiService {
-  YoutubeApiService._instantiate();
-
-  static final YoutubeApiService instance = YoutubeApiService._instantiate();
-
-  Future<List<Video>?> getVideosFromYoutubeSearch(
-      {required String query}) async {
+class YoutubeVideoRepository implements VideoRepository {
+  //
+  @override
+  Future<List<Video>> fetchVideos({required String query}) async {
+    //
     List<Video> videos = [];
 
     if (await ConnectionCheck.isAvaiable()) {
@@ -36,8 +32,8 @@ class YoutubeApiService {
       } on DioError catch (error) {
         print(
             'Erro ao receber os dados do youtube: ${error.response!.statusCode}');
-        return videos;
       }
     }
+    return videos;
   }
 }

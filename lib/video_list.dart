@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yt_player/core/videos/data/repositories/youtube_videos_repository.dart';
+import 'package:yt_player/core/videos/domain/entities/video_class.dart';
 import 'package:yt_player/video_card.dart';
-import 'package:yt_player/video_class.dart';
-import 'package:yt_player/yt_api_service.dart';
 
 class VideoList extends StatefulWidget {
   const VideoList({Key? key}) : super(key: key);
@@ -12,13 +12,12 @@ class VideoList extends StatefulWidget {
 
 class _VideoListState extends State<VideoList> {
   //
-  YoutubeApiService youtubeApi = YoutubeApiService.instance;
+  YoutubeVideoRepository repository = YoutubeVideoRepository();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: youtubeApi.getVideosFromYoutubeSearch(
-            query: 'hino 007 Maravilhas divinas'),
+        future: repository.fetchVideos(query: 'hino 007 Maravilhas divinas'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Video> videos = snapshot.data as List<Video>;
