@@ -10,11 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  youtube_player_flutter: ^8.0.0
-
   cupertino_icons: ^1.0.2
   dio: ^4.0.0
   http: ^0.13.3
+  youtube_player_iframe: ^2.2.2
 
 dev_dependencies:
   flutter_test:

@@ -24,14 +24,14 @@ class YoutubeVideoRepository implements VideoRepository {
       Response response;
       try {
         response = await dio.get('/search', queryParameters: params);
-        if (response.statusCode == 200) {
+        if (response.statusCode == 200 || response.statusCode == 201) {
           return (response.data['items'] as List)
               .map((e) => Video.fromMap(e))
               .toList();
         }
       } on DioError catch (error) {
         print(
-            'Erro ao receber os dados do youtube: ${error.response!.statusCode}');
+            'Erro ao receber os dados do youtube: ${error.response?.statusCode}');
       }
     }
     return videos;

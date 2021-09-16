@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:yt_player/core/videos/domain/entities/video_class.dart';
+import 'package:yt_player/youtube_video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   final Video video;
@@ -12,31 +12,15 @@ class VideoPlayerPage extends StatefulWidget {
 }
 
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
-  late YoutubePlayerController _youtubeController;
-
-  @override
-  void dispose() {
-    super.dispose();
-    _youtubeController.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     //
-    _youtubeController = YoutubePlayerController(
-      initialVideoId: widget.video.id,
-      flags: YoutubePlayerFlags(
-        autoPlay: false,
-        mute: false,
-      ),
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.video.title),
       ),
-      body: YoutubePlayer(
-        controller: _youtubeController,
+      body: YoutubeVideoPlayer(
+        video: widget.video,
       ),
     );
   }
