@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yt_player/core/videos/data/repositories/youtube_videos_repository.dart';
+import 'package:yt_player/core/videos/infra/repositories/youtube_videos_repository.dart';
 import 'package:yt_player/core/videos/domain/entities/video_class.dart';
 import 'package:yt_player/video_card.dart';
 
