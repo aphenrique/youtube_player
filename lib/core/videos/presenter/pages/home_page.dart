@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yt_player/video_list.dart';
+import 'package:yt_player/core/videos/presenter/widgets/video_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -6,7 +6,7 @@ class FetchVideosFromQueryUsecase {
 
   FetchVideosFromQueryUsecase(this.repository);
 
-  Future<List<Video>> call(String query) async {
+  Future<List<Video>> call({required String query}) async {
     return await repository.fetchVideosFromQuery(query: query);
   }
 }

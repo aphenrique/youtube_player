@@ -1,11 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
 import 'package:yt_player/core/videos/domain/errors/service_errors.dart';
 import 'package:yt_player/core/videos/domain/repositories/videos_repository_interface.dart';
 import 'package:yt_player/core/videos/infra/datasource/video_datasource.dart';
-import 'package:yt_player/custom_dio.dart';
-import 'package:yt_player/utils/connect_check.dart';
-import 'package:yt_player/yt_class.dart';
 
 class VideoRepositoryImpl implements VideoRepository {
   VideoDatasource datasource;

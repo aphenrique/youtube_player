@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:yt_player/core/videos/domain/errors/service_errors.dart';
 import 'package:yt_player/core/videos/infra/datasource/video_datasource.dart';
 import 'package:yt_player/core/videos/infra/model/video_model.dart';
-import 'package:yt_player/custom_dio.dart';
+import 'package:yt_player/core/videos/infra/datasource/custom_dio.dart';
 import 'package:yt_player/utils/connect_check.dart';
 
 import '../../../../yt_class.dart';

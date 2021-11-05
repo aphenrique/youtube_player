@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
-import 'package:yt_player/video_player_page.dart';
+import 'package:yt_player/core/videos/presenter/pages/video_player_page.dart';
 
 class VideoCard extends StatelessWidget {
   final Video video;

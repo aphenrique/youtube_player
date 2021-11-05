@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
 import 'package:yt_player/core/videos/presenter/controllers/list_videos_controller.dart';
-import 'package:yt_player/video_card.dart';
+import 'package:yt_player/core/videos/presenter/widgets/video_card.dart';
 
 class VideoList extends StatefulWidget {
   const VideoList({Key? key}) : super(key: key);
@@ -22,24 +22,22 @@ class _VideoListState extends State<VideoList> {
             List<Video> videos = snapshot.data as List<Video>;
 
             if (videos.length > 0) {
-              return Expanded(
-                child: GridView.builder(
-                  scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    mainAxisExtent: 190,
-                    mainAxisSpacing: 4,
-                  ),
-                  shrinkWrap: true,
-                  itemCount: videos.length,
-                  itemBuilder: (context, index) {
-                    return VideoCard(video: videos[index]);
-                  },
+              return GridView.builder(
+                scrollDirection: Axis.vertical,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  mainAxisExtent: 190,
+                  mainAxisSpacing: 4,
                 ),
+                shrinkWrap: true,
+                itemCount: videos.length,
+                itemBuilder: (context, index) {
+                  return VideoCard(video: videos[index]);
+                },
               );
             } else {
               return Center(
-                heightFactor: 2.5,
+                // heightFactor: 2.5,
                 child: ListTile(
                   title: Text(
                     'Ops!!\nNão conseguimos nos conectar ao youtube',
@@ -59,7 +57,9 @@ class _VideoListState extends State<VideoList> {
               );
             }
           }
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         });
   }
 }

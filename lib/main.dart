@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yt_player/video_list.dart';
+import 'package:yt_player/core/videos/presenter/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,18 +19,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        primaryColor: Colors.teal,
-        accentColor: Colors.amber,
       ),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Youtube Player'),
         ),
-        body: Column(
-          children: [
-            VideoList(),
-          ],
-        ),
+        body: HomePage(),
       ),
     );
   }
