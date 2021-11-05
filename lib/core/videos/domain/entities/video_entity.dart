@@ -19,4 +19,13 @@ class Video {
       channelTitle: video['snippet']['channelTitle'],
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'thumbnailUrl': thumbnailUrl,
+      'channelTitle': channelTitle,
+    };
+  }
 }

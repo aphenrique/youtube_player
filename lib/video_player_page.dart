@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yt_player/core/videos/domain/entities/video_class.dart';
+import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
 import 'package:yt_player/youtube_video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {

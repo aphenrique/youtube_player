@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yt_player/core/videos/infra/repositories/youtube_videos_repository.dart';
-import 'package:yt_player/core/videos/domain/entities/video_class.dart';
+import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
+import 'package:yt_player/core/videos/presenter/controllers/list_videos_controller.dart';
 import 'package:yt_player/video_card.dart';
 
 class VideoList extends StatefulWidget {
@@ -11,13 +11,12 @@ class VideoList extends StatefulWidget {
 }
 
 class _VideoListState extends State<VideoList> {
-  //
-  YoutubeVideoRepository repository = YoutubeVideoRepository();
+  final ListVideosController _controller = ListVideosController();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: repository.fetchVideos(query: 'hino 007 Maravilhas divinas'),
+        future: _controller.fetchVideos(query: 'hino 007 Maravilhas divinas'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Video> videos = snapshot.data as List<Video>;

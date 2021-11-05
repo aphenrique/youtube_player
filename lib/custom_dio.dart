@@ -1,8 +1,10 @@
 import 'package:dio/native_imp.dart';
 
 class CustomDio extends DioForNative {
-  CustomDio() {
-    options.baseUrl = "https://www.googleapis.com/youtube/v3";
+  final String baseUrl;
+
+  CustomDio({required this.baseUrl}) {
+    options.baseUrl = baseUrl;
     options.connectTimeout = 5000;
   }
 }

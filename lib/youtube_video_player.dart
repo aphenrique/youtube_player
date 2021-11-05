@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import 'package:yt_player/core/videos/domain/entities/video_class.dart';
+import 'package:yt_player/core/videos/domain/entities/video_entity.dart';
 
 class YoutubeVideoPlayer extends StatefulWidget {
   final Video video;
